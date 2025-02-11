@@ -6,7 +6,7 @@ import AttendeeDetails from "@/components/AttendeeDetails";
 import Ready from "@/components/Ready";
 
 export default function Home() {
-  const [step, setStep] = useState(2)
+  const [step, setStep] = useState(1)
   return (
     <div
       className={'max-w-[700px] bg-[#08252B] lg:bg-[#041E23] flex flex-col gap-10 mx-auto border border-[#0E464F] rounded-[40px] p-10 lg:p-16'}>
@@ -20,7 +20,7 @@ export default function Home() {
 
         {step === 1 && <TicketSelection setStep={setStep}/>}
         {step === 2 && <AttendeeDetails setStep={setStep}/>}
-        {step === 3 && <Ready/>}
+        {step === 3 && <Ready setStep={setStep}/>}
       </form>
       {/*  event end*/}
     </div>

@@ -4,11 +4,11 @@ function AttendeeDetails({setStep}: { setStep: Dispatch<SetStateAction<number>> 
   return (
     <>
       {/*upload image start*/}
-      <div className={'bg-[#052228] lg:bg-[#052228] flex flex-col gap-8 w-full border border-[#07373F] rounded-[24px] p-8'}>
+      <div className={'bg-[#052228] lg:bg-[#052228] flex flex-col gap-12 w-full border border-[#07373F] rounded-[24px] p-8 pb-16'}>
         <span className={'text-[16px]  text-white tracking-wide'}>Upload Profile Photo</span>
-        <div className={"bg-[#041c20] relative  h-[240px] flex justify-center "}>
+        <div className={"bg-[#041c20] relative  h-[200px] flex justify-center "}>
           <div
-            className={'bg-[#0E464F]  flex flex-col gap-4 justify-center items-center w-[240px] rounded-[32px] h-full'}>
+            className={'bg-[#0E464F] border-4 border-[#24A0B5]  flex flex-col gap-4 justify-center items-center w-[240px] rounded-[32px] h-[240px] absolute -top-10'}>
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M25.2639 14.816C24.6812 10.2266 20.7505 6.66663 16.0052 6.66663C12.3305 6.66663 9.13854 8.81463 7.68121 12.2C4.81721 13.056 2.67188 15.76 2.67188 18.6666C2.67188 22.3426 5.66254 25.3333 9.33854 25.3333H10.6719V22.6666H9.33854C7.13321 22.6666 5.33854 20.872 5.33854 18.6666C5.33854 16.7946 6.93721 14.9906 8.90254 14.6453L9.67721 14.5093L9.93321 13.7653C10.8705 11.0306 13.1972 9.33329 16.0052 9.33329C19.6812 9.33329 22.6719 12.324 22.6719 16V17.3333H24.0052C25.4759 17.3333 26.6719 18.5293 26.6719 20C26.6719 21.4706 25.4759 22.6666 24.0052 22.6666H21.3385V25.3333H24.0052C26.9465 25.3333 29.3385 22.9413 29.3385 20C29.337 18.8047 28.9347 17.6444 28.196 16.7046C27.4574 15.7649 26.425 15.0999 25.2639 14.816Z"
@@ -56,10 +56,10 @@ function AttendeeDetails({setStep}: { setStep: Dispatch<SetStateAction<number>> 
 
       {/*actions*/}
       <div
-        className={'lg:bg-[#041E23] flex-col-reverse font-primary text-[16px] lg:border border-[#0E464F] rounded-[24px] w-full lg:flex-row flex items-center lg:px-16 lg:gap-12'}>
+        className={'flex-col-reverse font-primary text-[16px] w-full lg:flex-row gap-8 flex items-center'}>
         <button type={'button'} onClick={() => {
           setStep(1)
-          window.scrollTo({top: 0, behavior: 'smooth'})
+          // window.scrollTo({top: 0, behavior: 'smooth'})
         }}
                 className={'bg-transparent hover:border-red-600 hover:text-red-600 transition-all duration-300 border w-full text-[#24A0B5] border-[#24A0B5] rounded-[8px] py-4 tracking-wide '}>Back
         </button>

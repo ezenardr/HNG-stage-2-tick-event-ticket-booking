@@ -25,52 +25,36 @@ function TicketSelection({setStep}:{setStep: Dispatch<SetStateAction<number>>}) 
       {/*  ticket type start*/}
       <div className={'w-full'}>
         <p className={'text-[16px] text-white tracking-wide mb-4'}>Select Ticket Type:</p>
-        <div className={'grid grid-cols-1 lg:grid-cols-2 gap-y-10 border border-[#07373F] rounded-[24px] p-6'}>
+        <div className={'grid grid-cols-1 lg:grid-cols-3 justify-center items-center gap-y-10 border border-[#07373F] rounded-[24px] bg-[#052228] p-6'}>
           <label
-            className="relative inline-block border border-[#07373F] cursor-pointer h-[75px] w-full lg:w-[250px] rounded-[12px] bg-transparent transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-primary-500">
+            className="relative inline-block border border-[#07373F] cursor-pointer h-[110px] w-full lg:w-[158px] rounded-[12px] bg-transparent transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-primary-500">
             <input className="peer sr-only" id="ticket-type" name={'ticket-type'} value={'free'} type="radio"
                    defaultChecked/>
             <div
-              className="absolute p-5 rounded-[12px] w-full h-full transition-all  peer-checked:bg-[#197686] text-[#f8fbfd] flex items-start gap-4 justify-between">
-              <div className={'flex flex-col gap-2 '}>
-                <span className={' text-[16px]'}>REGULAR ACCESS</span>
-                <span className={'text-[14px]'}>20 left!</span>
-              </div>
-              <div
-                className={'bg-[#0E464F] w-[80px] border border-[#2BA4B9] text-[#f8fbfd] rounded-[8px] p-2 text-[20px] text-right font-semibold'}>
-                Free
-              </div>
+              className="absolute rounded-[12px] w-full h-full transition-all  peer-checked:bg-[#12464E] text-[#f8fbfd] flex items-start flex-col p-4">
+              <span className={'text-white font-semibold text-[24px] mb-1'}>Free</span>
+              <span className={'text-[16px] text-[#fafafa] uppercase'}>Regular Access</span>
+              <span className={'text-[14px] text-[#d9d9d9]'}>20/52</span>
             </div>
           </label>
           <label
-            className="relative inline-block border border-[#07373F] cursor-pointer h-[75px] w-full lg:w-[250px] rounded-[12px] bg-transparent transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-primary-500">
+            className="relative inline-block border border-[#07373F] cursor-pointer h-[110px] w-full lg:w-[158px] rounded-[12px] bg-transparent transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-primary-500">
             <input className="peer sr-only" id="ticket-type" name={'ticket-type'} value={'vip'} type="radio"/>
             <div
-              className="absolute p-5 rounded-[12px] w-full h-full transition-all  peer-checked:bg-[#197686] text-[#f8fbfd] flex items-start justify-between
-                   gap-4">
-              <div className={'flex flex-col gap-2 '}>
-                <span className={' text-[16px]'}>VIP ACCESS</span>
-                <span className={'text-[14px]'}>20 left!</span>
-              </div>
-              <div
-                className={'bg-[#0E464F] w-[80px] border border-[#2BA4B9] text-[#f8fbfd] rounded-[8px] p-2 text-[20px] text-right font-semibold'}>
-                $50
-              </div>
+              className="absolute rounded-[12px] w-full h-full transition-all  peer-checked:bg-[#12464E] text-[#f8fbfd] flex items-start flex-col p-4">
+              <span className={'text-white font-semibold text-[24px] mb-1'}>$150</span>
+              <span className={'text-[16px] text-[#fafafa] uppercase'}>VIP Access</span>
+              <span className={'text-[14px] text-[#d9d9d9]'}>20/52</span>
             </div>
           </label>
           <label
-            className="relative inline-block border border-[#07373F] cursor-pointer h-[75px] w-full lg:w-[250px] rounded-[12px] bg-transparent transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-primary-500">
+            className="relative inline-block border border-[#07373F] cursor-pointer h-[110px] w-full lg:w-[158px] rounded-[12px] bg-transparent transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-primary-500">
             <input className="peer sr-only" id="ticket-type" name={'ticket-type'} value={'vvip'} type="radio"/>
             <div
-              className="absolute p-5 rounded-[12px] w-full h-full transition-all  peer-checked:bg-[#197686] text-[#f8fbfd] flex items-start gap-4 justify-between">
-              <div className={'flex flex-col gap-2 '}>
-                <span className={' text-[16px]'}>VVIP ACCESS</span>
-                <span className={'text-[14px]'}>20 left!</span>
-              </div>
-              <div
-                className={'bg-[#0E464F] w-[80px] border border-[#2BA4B9] text-[#f8fbfd] rounded-[8px] p-2 text-[20px] text-right font-semibold'}>
-                $150
-              </div>
+              className="absolute rounded-[12px] w-full h-full transition-all  peer-checked:bg-[#12464E] text-[#f8fbfd] flex items-start flex-col p-4">
+              <span className={'text-white font-semibold text-[24px] mb-1'}>$150</span>
+              <span className={'text-[16px] text-[#fafafa] uppercase'}>VVIP Access</span>
+              <span className={'text-[14px] text-[#d9d9d9]'}>20/52</span>
             </div>
           </label>
         </div>
@@ -88,7 +72,7 @@ function TicketSelection({setStep}:{setStep: Dispatch<SetStateAction<number>>}) 
       </div>
 
       <div
-        className={'lg:bg-[#041E23] flex-col-reverse font-primary text-[16px] lg:border border-[#0E464F] rounded-[24px] w-full lg:flex-row flex items-center lg:px-16 lg:gap-12'}>
+        className={'flex-col-reverse font-primary text-[16px] w-full lg:flex-row gap-8 flex items-center'}>
         <button
           className={'bg-transparent hover:border-red-600 hover:text-red-600 transition-all duration-300 border w-full text-[#24A0B5] border-[#24A0B5] rounded-[8px] py-4 tracking-wide '}>Cancel
         </button>
