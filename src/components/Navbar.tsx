@@ -26,7 +26,7 @@ function Navbar() {
     return location === path
   }
   return (
-    <div className={'max-w-[1200px] sticky top-0 backdrop-blur  mx-auto my-6 lg:mb-12 flex items-center justify-between p-4 border-[#197686] border rounded-[24px]'}>
+    <div className={'max-w-[1200px] sticky top-0 backdrop-blur z-[99999] mx-auto my-6 lg:mb-12 flex items-center justify-between p-4 border-[#197686] border rounded-[24px]'}>
       <Image src={logo} alt={"logo of Tiez Event ticket booking application"}/>
       <nav className={'hidden lg:block'}>
         <ul className={'flex items-center gap-16'}>
