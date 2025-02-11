@@ -12,6 +12,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily :{
+        "primary" : ['primary', 'serif'],
+        "secondary" : "var(--font-road)",
+      }
     },
   },
   plugins: [],

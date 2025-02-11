@@ -2,20 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+:root{
+    --rem : 10px;
+    font-size: var(--rem);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+    font-family: 'primary';
+    src: url("/fonts/JejuMyeongjo-Regular.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
