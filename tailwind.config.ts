@@ -15,6 +15,7 @@ export default {
       fontFamily :{
         "primary" : ['primary', 'serif'],
         "secondary" : "var(--font-road)",
+        "alatsi" : "var(--font-alatsi)",
       }
     },
   },

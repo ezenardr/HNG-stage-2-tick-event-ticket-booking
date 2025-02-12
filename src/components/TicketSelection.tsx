@@ -1,6 +1,6 @@
 import React, {Dispatch, SetStateAction} from 'react';
 
-function TicketSelection({setStep}:{setStep: Dispatch<SetStateAction<number>>}) {
+function TicketSelection({setStep}: { setStep: Dispatch<SetStateAction<number>> }) {
   return (
     <>
       {/* event banner start*/}
@@ -25,7 +25,8 @@ function TicketSelection({setStep}:{setStep: Dispatch<SetStateAction<number>>}) 
       {/*  ticket type start*/}
       <div className={'w-full'}>
         <p className={'text-[16px] text-white tracking-wide mb-4'}>Select Ticket Type:</p>
-        <div className={'grid grid-cols-1 lg:grid-cols-3 justify-center items-center gap-y-10 border border-[#07373F] rounded-[24px] bg-[#052228] p-6'}>
+        <div
+          className={'grid grid-cols-1 lg:grid-cols-3 justify-center items-center gap-y-10 border border-[#07373F] rounded-[24px] bg-[#052228] p-6'}>
           <label
             className="relative inline-block border border-[#07373F] cursor-pointer h-[110px] w-full lg:w-[158px] rounded-[12px] bg-transparent transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-primary-500">
             <input className="peer sr-only" id="ticket-type" name={'ticket-type'} value={'free'} type="radio"
@@ -72,15 +73,19 @@ function TicketSelection({setStep}:{setStep: Dispatch<SetStateAction<number>>}) 
       </div>
 
       <div
-        className={'flex-col-reverse font-primary text-[16px] w-full lg:flex-row gap-8 flex items-center'}>
+        className={'flex-col-reverse font-primary text-[16px] w-full lg:flex-row lg:gap-8 flex items-center'}>
         <button
+          type={'button'}
+          onClick={() =>
+            window.scrollTo({top: 0, behavior: 'smooth'})
+          }
           className={'bg-transparent hover:border-red-600 hover:text-red-600 transition-all duration-300 border w-full text-[#24A0B5] border-[#24A0B5] rounded-[8px] py-4 tracking-wide '}>Cancel
         </button>
         <button type={'button'} onClick={() => {
           setStep(2)
           window.scrollTo({top: 0, behavior: 'smooth'})
         }}
-                className={'bg-[#24A0B5] mb-6 lg:mb-0 hover:bg-[#19707f] transition-all border w-full text-white border-[#24A0B5] rounded-[8px] py-4 tracking-wide '}>Next
+                className={'bg-[#24A0B5] mb-4 lg:mb-0 hover:bg-[#19707f] transition-all border w-full text-white border-[#24A0B5] rounded-[8px] py-4 tracking-wide '}>Next
         </button>
       </div>
     </>

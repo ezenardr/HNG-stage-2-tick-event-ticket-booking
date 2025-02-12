@@ -1,5 +1,5 @@
 import type {Metadata} from "next";
-import {Road_Rage, Roboto} from "next/font/google";
+import {Road_Rage, Roboto, Alatsi} from "next/font/google";
 import "./globals.css";
 import React from "react";
 import Navbar from "@/components/Navbar";
@@ -12,6 +12,11 @@ const roboto = Roboto({
 
 const roadRage = Road_Rage({
   variable: "--font-road",
+  subsets: ['latin'],
+  weight: '400'
+})
+const alatsi = Alatsi({
+  variable: "--font-alatsi",
   subsets: ['latin'],
   weight: '400'
 })
@@ -29,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
     <body
-      className={`${roboto.className} ${roadRage.variable} bg-[#02191e] px-6 lg:px-0 mb-12`}
+      className={`${roboto.className} ${roadRage.variable} ${alatsi.variable} bg-[#02191e] px-6 lg:px-0 mb-12`}
     >
     <Navbar/>
     {children}

@@ -5,8 +5,8 @@ function AttendeeDetails({setStep}: { setStep: Dispatch<SetStateAction<number>> 
     <>
       {/*upload image start*/}
       <div className={'bg-[#052228] lg:bg-[#052228] flex flex-col gap-12 w-full border border-[#07373F] rounded-[24px] p-8 pb-16'}>
-        <span className={'text-[16px]  text-white tracking-wide'}>Upload Profile Photo</span>
-        <div className={"bg-[#041c20] relative  h-[200px] flex justify-center "}>
+        <span className={'text-[16px]  text-white tracking-wide pb-4'}>Upload Profile Photo</span>
+        <div className={"bg-[#052228]lg:bg-[#041c20] relative  h-[200px] flex justify-center "}>
           <div
             className={'bg-[#0E464F] border-4 border-[#24A0B5]  flex flex-col gap-4 justify-center items-center w-[240px] rounded-[32px] h-[240px] absolute -top-10'}>
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +56,7 @@ function AttendeeDetails({setStep}: { setStep: Dispatch<SetStateAction<number>> 
 
       {/*actions*/}
       <div
-        className={'flex-col-reverse font-primary text-[16px] w-full lg:flex-row gap-8 flex items-center'}>
+        className={'flex-col-reverse font-primary text-[16px] w-full lg:flex-row lg:gap-8 flex items-center'}>
         <button type={'button'} onClick={() => {
           setStep(1)
           // window.scrollTo({top: 0, behavior: 'smooth'})
@@ -67,7 +67,7 @@ function AttendeeDetails({setStep}: { setStep: Dispatch<SetStateAction<number>> 
           setStep(3)
           window.scrollTo({top: 0, behavior: 'smooth'})
         }}
-                className={'bg-[#24A0B5] mb-6 lg:mb-0 hover:bg-[#19707f] transition-all border w-full text-white border-[#24A0B5] rounded-[8px] py-4 tracking-wide '}>Get
+                className={'bg-[#24A0B5] mb-4 lg:mb-0 hover:bg-[#19707f] transition-all border w-full text-white border-[#24A0B5] rounded-[8px] py-4 tracking-wide '}>Get
           My Free Ticket
         </button>
       </div>
