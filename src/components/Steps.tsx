@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Steps({step = 1} :{step:number}) {
+function Steps({step = '1'} :{step:string}) {
   return (
     <>
-      {step === 1 && (
+      {step === '1' && (
         <div className={'flex flex-col gap-5 lg:gap-3'}>
           <div className={'flex flex-col lg:flex-row items-start gap-1 lg:items-center justify-between'}>
             <span className={'font-primary text-[32px] text-white tracking-wide'}>Ticket Selection</span>
@@ -16,7 +16,7 @@ function Steps({step = 1} :{step:number}) {
           </div>
         </div>
       )}
-      {step === 2 && (
+      {step === '2' && (
         <div className={'flex flex-col gap-5 lg:gap-3'}>
           <div className={'flex flex-col lg:flex-row items-start gap-1 lg:items-center justify-between'}>
             <span className={'font-primary text-[32px] text-white tracking-wide'}>Attendee Details</span>
@@ -29,7 +29,7 @@ function Steps({step = 1} :{step:number}) {
           </div>
         </div>
       )}
-      {step === 3 && (
+      {step === '3' && (
         <div className={'flex flex-col gap-5 lg:gap-3'}>
           <div className={'flex flex-col lg:flex-row items-start gap-1 lg:items-center justify-between'}>
             <span className={'font-primary text-[32px] text-white tracking-wide'}>Ready</span>

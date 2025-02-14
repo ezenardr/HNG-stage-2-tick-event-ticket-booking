@@ -3,6 +3,7 @@ import {Road_Rage, Roboto, Alatsi} from "next/font/google";
 import "./globals.css";
 import React from "react";
 import Navbar from "@/components/Navbar";
+import {Toaster} from "sonner";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -36,6 +37,7 @@ export default function RootLayout({
     <body
       className={`${roboto.className} ${roadRage.variable} ${alatsi.variable} bg-[#02191e] px-6 lg:px-0 mb-12`}
     >
+    <Toaster richColors position={'top-right'}/>
     <Navbar/>
     {children}
     </body>
