@@ -1,3 +1,4 @@
+'use client'
 import React, {Dispatch, SetStateAction} from 'react';
 import Image from "next/image";
 import ticket from "@/assets/images/ticket.png"

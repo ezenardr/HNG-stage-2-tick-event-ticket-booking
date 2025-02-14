@@ -1,3 +1,4 @@
+'use client'
 import React, {Dispatch, SetStateAction, useState} from 'react';
 import type {FormData} from "@/types/FormData";
 import {useForm} from "react-hook-form";

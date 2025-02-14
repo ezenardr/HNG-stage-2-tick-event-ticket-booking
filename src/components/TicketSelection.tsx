@@ -1,3 +1,4 @@
+'use client'
 import React, {Dispatch, SetStateAction} from 'react';
 import {type FormData} from "@/types/FormData";
 
