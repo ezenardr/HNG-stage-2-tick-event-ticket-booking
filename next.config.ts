@@ -5,6 +5,9 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "bgzikggjygaxzweedpkr.supabase.co"
+      },{
+        protocol: "https",
+        hostname: "barcode.tec-it.com"
       }
     ]
   }

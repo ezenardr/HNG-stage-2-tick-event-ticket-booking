@@ -57,7 +57,8 @@ function Ready({setStep}: { setStep: Dispatch<SetStateAction<string>> }) {
           </div>
 
           <div className={'text-center w-[236px] absolute bottom-8 right-[50%] translate-x-[50%]'} >
-            <img alt='Barcode Generator TEC-IT'
+            <Image alt='Barcode Generator TEC-IT'
+                   width={200} height={80}
                  className={'h-[80px] w-full'}
                  src='https://barcode.tec-it.com/barcode.ashx?data=REG-VV-1&code=Code128&translate-esc=on'/>
           </div>

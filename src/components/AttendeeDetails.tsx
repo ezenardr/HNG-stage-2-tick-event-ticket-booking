@@ -5,7 +5,6 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {ticketFormSchema, TypeTicketFormSchema} from "@/types/AttendeeDetails";
 import Image from "next/image";
 import {supabaseClient} from "@/lib/supabase";
-import {toast} from "sonner";
 
 function AttendeeDetails({setStep, setFormData, formData}: {
   setStep: Dispatch<SetStateAction<string>>;
@@ -36,7 +35,7 @@ function AttendeeDetails({setStep, setFormData, formData}: {
   async function uploadImage(file: File) {
     setUploading(true);
     const imageFile = file;
-    try {
+
       const { data } = await supabaseClient.storage
         .from("images")
         .upload(`${imageFile.name}`, imageFile);
@@ -52,10 +51,6 @@ function AttendeeDetails({setStep, setFormData, formData}: {
             }
           });
       }
-    } catch (e) {
-      toast.error('Failed to upload Image');
-    }
-    setUploading(false);
   }
 
   async function submitHandler(data: TypeTicketFormSchema) {
@@ -69,6 +64,7 @@ function AttendeeDetails({setStep, setFormData, formData}: {
       await uploadImage(data.image)
     }
     setTimeout(()=>{
+      setUploading(false);
       setStep('3')
       localStorage.setItem('step', '3')
       window.scrollTo({top: 0, behavior: 'smooth'})
@@ -153,7 +149,7 @@ function AttendeeDetails({setStep, setFormData, formData}: {
         <label htmlFor={'about'} className={'text-[16px] tracking-wide text-white'}>Special request?</label>
         <textarea id={'about'}
                   {...register('about')}
-                  placeholder={'Textarea'}
+                  placeholder={'Textarea'} maxLength={15}
                   className={'rounded-[12px] h-[127px] resize-none text-white text-[16px] border border-[#07373F] py-5 bg-transparent px-3'}/>
         {errors.about && <span className={'text-[12px] text-red-500 tracking-wide pl-3'}>{errors.about.message}</span>}
       </div>
