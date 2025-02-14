@@ -7,6 +7,7 @@ function TicketSelection({setStep, setFormData, formData}: {
   setFormData: Dispatch<SetStateAction<FormData>>;
   formData: FormData;
 }) {
+  const isBrowser = typeof window !== "undefined";
   return (
     <>
       {/* event banner start*/}
@@ -99,7 +100,7 @@ function TicketSelection({setStep, setFormData, formData}: {
         </button>
         <button type={'button'} onClick={() => {
           setStep('2')
-          localStorage.setItem('step', '2')
+          if(isBrowser) localStorage.setItem('step', '2')
           window.scrollTo({top: 0, behavior: 'smooth'})
         }}
                 className={'bg-[#24A0B5] mb-4 lg:mb-0 hover:bg-[#19707f] transition-all border w-full text-white border-[#24A0B5] rounded-[8px] py-4 tracking-wide '}>Next

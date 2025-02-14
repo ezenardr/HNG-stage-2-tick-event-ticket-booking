@@ -12,13 +12,13 @@ function AttendeeDetails({setStep, setFormData, formData}: {
   setFormData: Dispatch<SetStateAction<FormData>>;
   formData: FormData;
 }) {
-
+  const isBrowser = typeof window !== "undefined";
   const {register, trigger, setValue, handleSubmit, formState: {errors}} = useForm<TypeTicketFormSchema>({
       resolver: zodResolver(ticketFormSchema),
       defaultValues: {
-        about: localStorage.getItem('about') || '',
-        name: localStorage.getItem('name') || '',
-        email: localStorage.getItem('email') || '',
+        about: isBrowser && localStorage.getItem('about') || '',
+        name: isBrowser && localStorage.getItem('name') || '',
+        email: isBrowser && localStorage.getItem('email') || '',
       }
     }
   )
@@ -47,7 +47,7 @@ function AttendeeDetails({setStep, setFormData, formData}: {
           .then(({ data }) => {
             if (data) {
               // setImageUrl(data.signedUrl)
-              localStorage.setItem('image', data.signedUrl)
+              if(isBrowser) localStorage.setItem('image', data.signedUrl)
               setPreview(null)
             }
           });
@@ -56,18 +56,20 @@ function AttendeeDetails({setStep, setFormData, formData}: {
 
   async function submitHandler(data: TypeTicketFormSchema) {
     setFormData({...formData, name: data.name, email: data.email, about: data.about});
-    localStorage.setItem('name', data.name)
-    localStorage.setItem('email', data.email)
-    localStorage.setItem('about', data.about ?? "")
-    localStorage.setItem('ticket_type', formData.ticket_type)
-    localStorage.setItem('quantity', String(formData.quantity))
+    if(isBrowser) {
+      localStorage.setItem('name', data.name)
+      localStorage.setItem('email', data.email)
+      localStorage.setItem('about', data.about ?? "")
+      localStorage.setItem('ticket_type', formData.ticket_type)
+      localStorage.setItem('quantity', String(formData.quantity))
+    }
     if(data.image){
       await uploadImage(data.image)
     }
     setTimeout(()=>{
       setUploading(false);
       setStep('3')
-      localStorage.setItem('step', '3')
+      if(isBrowser) localStorage.setItem('step', '3')
       window.scrollTo({top: 0, behavior: 'smooth'})
     }, 3000)
 
@@ -160,7 +162,7 @@ function AttendeeDetails({setStep, setFormData, formData}: {
         className={'flex-col-reverse font-primary text-[16px] w-full lg:flex-row lg:gap-8 flex items-center'}>
         <button type={'button'} onClick={() => {
           setStep('1')
-          localStorage.setItem('step', '1')
+          if(isBrowser) localStorage.setItem('step', '1')
         }}
                 className={'bg-transparent hover:border-red-600 hover:text-red-600 transition-all duration-300 border w-full text-[#24A0B5] border-[#24A0B5] rounded-[8px] py-4 tracking-wide '}>Back
         </button>

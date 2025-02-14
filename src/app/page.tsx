@@ -1,16 +1,20 @@
 'use client'
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Steps from "@/components/Steps";
 import {FormData} from "@/types/FormData";
-import dynamic from "next/dynamic";
+import TicketSelection from "@/components/TicketSelection";
+import AttendeeDetails from "@/components/AttendeeDetails";
+import Ready from "@/components/Ready";
 
-const TicketSelection = dynamic(import('../components/TicketSelection'), {ssr : false});
-const AttendeeDetails = dynamic(import('../components/AttendeeDetails'), {ssr : false});
-const Ready = dynamic(import('../components/Ready'), {ssr : false});
+
 
 export default function Home() {
 
-  const [step, setStep] = useState(localStorage.getItem('step') ?? '1')
+  const [step, setStep] = useState('1')
+  useEffect(() => {
+    const savedStep = localStorage.getItem("step") ?? "1";
+    setStep(savedStep);
+  }, []);
   const [formData, setFormData] = useState<FormData>({
     ticket_type : 'regular',
     quantity: 1,
