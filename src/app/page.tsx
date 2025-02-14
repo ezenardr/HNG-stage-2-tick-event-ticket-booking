@@ -1,10 +1,12 @@
 'use client'
 import React, {useState} from "react";
 import Steps from "@/components/Steps";
-import TicketSelection from "@/components/TicketSelection";
-import AttendeeDetails from "@/components/AttendeeDetails";
-import Ready from "@/components/Ready";
 import {FormData} from "@/types/FormData";
+import dynamic from "next/dynamic";
+
+const TicketSelection = dynamic(import('../components/TicketSelection'), {ssr : false});
+const AttendeeDetails = dynamic(import('../components/AttendeeDetails'), {ssr : false});
+const Ready = dynamic(import('../components/Ready'), {ssr : false});
 
 export default function Home() {
 
