@@ -1,7 +1,8 @@
 'use client'
-import React, {Dispatch, SetStateAction} from 'react';
+import React, {Dispatch, SetStateAction, useRef} from 'react';
 import Image from "next/image";
 import ticket from "@/assets/images/ticket.png"
+import html2canvas from "html2canvas";
 
 function Ready({setStep}: { setStep: Dispatch<SetStateAction<string>> }) {
   const isBrowser = typeof window !== "undefined";
@@ -13,6 +14,21 @@ function Ready({setStep}: { setStep: Dispatch<SetStateAction<string>> }) {
     about: isBrowser && localStorage.getItem('about'),
     image: isBrowser && localStorage.getItem('image'),
   }
+  const ticketRef = useRef<HTMLDivElement>(null);
+
+  async function handleDownload() {
+    if (!ticketRef.current) return;
+
+    const canvas = await html2canvas(ticketRef.current);
+    const image = canvas.toDataURL("image/png");
+    if (isBrowser) {
+      const link = document.createElement("a");
+      link.href = image;
+      link.download = "ticket.png";
+      link.click();
+    }
+  }
+
   return (
     <>
 
@@ -22,7 +38,7 @@ function Ready({setStep}: { setStep: Dispatch<SetStateAction<string>> }) {
       </div>
 
       {/*ticket start*/}
-      <div className={'relative'}>
+      <div className={'relative'} ref={ticketRef}>
         <Image src={ticket} alt='ticket template'/>
         <div
           className={'absolute top-[40%] right-[50%] translate-x-[50%] -translate-y-[50%] w-[260px] h-[446px] border border-[#24A0B5] rounded-[16px] flex flex-col items-center text-center p-4 gap-4 overflow-hidden '}>
@@ -32,7 +48,7 @@ function Ready({setStep}: { setStep: Dispatch<SetStateAction<string>> }) {
             <p className={'text-white text-[10px] '}>📅 March 15, 2025 | 7:00 PM</p>
           </div>
           <div className={'border border-[#24A0B5] rounded-[12px]'}>
-            {informations.image && <Image src={informations.image} width={140} height={140} alt={"user image"}/>}
+            {informations.image && <Image src={informations.image} width={140} height={140} className={'max-h-[140px] object-top'} alt={"user image"}/>}
           </div>
           <div
             className={'grid grid-cols-2  w-full bg-[#08343C] border border-[#133D44] rounded-[8px] overflow-hidden  p-4 '}>
@@ -81,13 +97,7 @@ function Ready({setStep}: { setStep: Dispatch<SetStateAction<string>> }) {
                 className={'bg-transparent hover:text-white hover:bg-[#19707f] transition-all duration-300 border w-full text-[#24A0B5] border-[#24A0B5] rounded-[8px] py-4 tracking-wide '}>Book
           Another Ticket
         </button>
-        <button type={'button'} onClick={() => {
-          setStep('3')
-          if (isBrowser) {
-            localStorage.setItem('step', '3')
-            window.scrollTo({top: 0, behavior: 'smooth'})
-          }
-        }}
+        <button type={'button'} onClick={handleDownload}
                 className={'bg-[#24A0B5] mb-4 lg:mb-0 hover:bg-[#19707f] transition-all border w-full text-white border-[#24A0B5] rounded-[8px] py-4 tracking-wide '}>Download
           Ticket
         </button>
